@@ -1,0 +1,7 @@
+{
+  "name": "Adventurer-Hub",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
