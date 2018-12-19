@@ -1,0 +1,15 @@
+page-your-campaigns {
+
+  #camera-image {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 20vh;
+    height: 20vh;
+    border-radius: 100vh;
+  }
+
+  #test {
+    transform: translate(0vh, 30vh);
+  }
+}

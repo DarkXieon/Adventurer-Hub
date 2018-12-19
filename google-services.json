@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "247558624907",
+    "firebase_url": "https://adventurer-hub.firebaseio.com",
+    "project_id": "adventurer-hub",
+    "storage_bucket": "adventurer-hub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247558624907:android:ed480b43a847b170",
+        "android_client_info": {
+          "package_name": "com.kaus.adventurerhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247558624907-plemlt1rhmru8v60kd5fliiuid0c0na7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kaus.adventurerhub",
+            "certificate_hash": "49b60d55676a48f58962e6159b07676a434ea327"
+          }
+        },
+        {
+          "client_id": "247558624907-9a0255eia6jn2abit7e75qp0murpc6j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVHXrn9wQHN9qbR3qwWxMg9UYgRrjsf1A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247558624907-9a0255eia6jn2abit7e75qp0murpc6j7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title id="heading">{{campaignInfo.contract.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <img src={{campaignInfo.contract.image}} />
+</ion-content>
+<ion-content id="body" padding>
+  <ion-card-header>
+    <h2>Description</h2>
+  </ion-card-header>
+  <ion-card id="description">
+    {{campaignInfo.contract.description}}
+  </ion-card>
+  <ion-content padding>
+    <h2>Current Players</h2>
+    <ion-list *ngFor="let player of campaignPlayers">
+      <p style="text-align: center">{{player.displayName}}</p>
+    </ion-list>
+    <button id="button" ion-button primary *ngIf="!isCampaignOwner && !isInCampaign" (tap)="addToCampaign()">Add</button>
+    <button id="button" ion-button primary *ngIf="!isCampaignOwner && isInCampaign" (tap)="removeFromCampaign()">Remove</button>
+    <button id="button" ion-button primary *ngIf="isCampaignOwner && isInCampaign" (tap)="deleteCampaign()">Delete</button>
+  </ion-content>
+</ion-content>

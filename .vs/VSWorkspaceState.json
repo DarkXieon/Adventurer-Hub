@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\assets",
+    "\\src\\assets\\imgs",
+    "\\src\\pages",
+    "\\src\\pages\\create-account",
+    "\\src\\pages\\home",
+    "\\src\\providers"
+  ],
+  "SelectedNode": "\\src\\pages\\create-account\\create-account.html",
+  "PreviewInSolutionExplorer": false
+}

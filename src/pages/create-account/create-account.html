@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CreateAccount</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked color="primary">Email</ion-label>
+      <ion-input [(ngModel)]="email" placeholder="noname@mymail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Display Name</ion-label>
+      <ion-input [(ngModel)]="displayName" placeholder="People see this"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <img id="camera-image" item-start/>
+      <ion-label *ngIf="profileImage == null" item-start color="primary">No Image Selected</ion-label>
+      <button ion-button small item-end primary (tap)="pickImage()">Choose Profile Image</button>
+    </ion-item>
+  </ion-list>
+
+  <ion-label stacked color="danger">{{errorMessage}}</ion-label>
+  <button ion-button full primary (tap)="tryCreateAccount()">Create Account</button>
+</ion-content>

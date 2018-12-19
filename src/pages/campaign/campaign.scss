@@ -1,0 +1,40 @@
+page-campaign {
+
+  #heading {
+    text-align: center;
+    text-anchor: middle;
+  }
+
+  img {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 200px;
+    height: 200px;
+    border-radius: 1000px;
+  }
+
+  #body {
+    position: fixed;
+    text-align: center;
+    text-anchor: middle;
+    top: 35%;
+  }
+
+  #description {
+    text-align: center;
+    font-size: 14px;
+    min-height: 100px;
+    border: thin;
+    border-color: black;
+    border-style: solid;
+    transform: translate(0%, -5%);
+  }
+
+  #button {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+  }
+}
