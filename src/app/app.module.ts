@@ -17,6 +17,7 @@ import { YourCampaignsPage } from '../pages/your-campaigns/your-campaigns';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AccountInfoProvider } from '../providers/account-info/account-info';
 import { CampaignInfoProvider } from '../providers/campaign-info/campaign-info';
 import { CalendarProvider } from '../providers/calendar/calendar';
@@ -25,6 +26,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { LocationProvider } from '../providers/location/location';
 import { ComponentsModule } from '../components/components.module';
 import { Camera } from '@ionic-native/camera';
+import { CreateCampaignPageModule } from '../pages/create-campaign/create-campaign.module';
+import { CreateCampaignPage } from '../pages/create-campaign/create-campaign';
 
 const config = {
   apiKey: "AIzaSyDFng8GwVcZiYtfv8F7CYtU9T88KmbLo00",
@@ -42,7 +45,8 @@ const config = {
     CampaignPage,
     CampaignFinderPage,
     CreateAccountPage,
-    YourCampaignsPage
+    YourCampaignsPage,
+    CreateCampaignPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ const config = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +64,8 @@ const config = {
     CampaignPage,
     CampaignFinderPage,
     CreateAccountPage,
-    YourCampaignsPage
+    YourCampaignsPage,
+    CreateCampaignPage
   ],
   providers: [
     StatusBar,

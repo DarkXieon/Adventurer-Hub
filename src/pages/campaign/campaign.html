@@ -1,25 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title id="heading">{{campaignInfo.contract.name}}</ion-title>
+    <ion-title style="text-align: center; text-transform:capitalize">{{campaignInfo.contract.name}}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <img src={{campaignInfo.contract.image}} />
-</ion-content>
-<ion-content id="body" padding>
-  <ion-card-header>
-    <h2>Description</h2>
-  </ion-card-header>
-  <ion-card id="description">
-    {{campaignInfo.contract.description}}
-  </ion-card>
-  <ion-content padding>
-    <h2>Current Players</h2>
-    <ion-list *ngFor="let player of campaignPlayers">
-      <p style="text-align: center">{{player.displayName}}</p>
-    </ion-list>
-    <button id="button" ion-button primary *ngIf="!isCampaignOwner && !isInCampaign" (tap)="addToCampaign()">Add</button>
-    <button id="button" ion-button primary *ngIf="!isCampaignOwner && isInCampaign" (tap)="removeFromCampaign()">Remove</button>
-    <button id="button" ion-button primary *ngIf="isCampaignOwner && isInCampaign" (tap)="deleteCampaign()">Delete</button>
-  </ion-content>
+
+<ion-content>
+    <div *ngIf="campaignInfo.contract.image && (campaignInfo.contract.image | async) as image">
+      <img id="camera-image" src={{image}} />
+    </div>
+    <div id="body">
+      <ion-card-header>
+        <h2>Description</h2>
+      </ion-card-header>
+
+      <ion-card id="description">
+        <ion-card-content>
+          {{campaignInfo.contract.description}}
+        </ion-card-content>
+      </ion-card>
+
+      <div style="transform: translate(0vw, 5vh)">
+        <h2>Meeting Times</h2>
+        <p>{{showMeetingTime()}}</p>
+      </div>
+
+      <div style="transform: translate(0vw, 10vh)">
+        <h2>Current Players</h2>
+
+        <ion-list *ngFor="let player of campaignPlayers">
+          <p>{{player.displayName}}</p>
+        </ion-list>
+
+        <div style="transform: translate(0vw, 5vh)">
+          <button ion-button full primary *ngIf="!isCampaignOwner && !isInCampaign" (tap)="addToCampaign()">Add</button>
+          <button ion-button full primary *ngIf="!isCampaignOwner && isInCampaign" (tap)="removeFromCampaign()">Remove</button>
+          <button ion-button full primary *ngIf="isCampaignOwner && isInCampaign" (tap)="deleteCampaign()">Delete</button>
+        </div>
+      </div>
+    </div>
 </ion-content>

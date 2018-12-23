@@ -1,9 +1,10 @@
 <ion-item (tap)="viewCampaign()">
-  <ion-avatar item-start>
-    <img src={{campaignPreviewInfo.campaign.contract.image}}>
+  <ion-avatar *ngIf="campaignPreviewInfo.campaign.contract.image && (campaignPreviewInfo.campaign.contract.image | async) as image" item-start>
+    <img src={{image}}>
   </ion-avatar>
+
   <h1>{{campaignPreviewInfo.campaign.contract.name}}</h1>
-  <p> Meeting Time: {{campaignPreviewInfo.campaign.contract.meetingTime}} </p>
+  <p> Meeting Time: {{showMeetingTime()}} </p>
   <p> Current Players: {{campaignPreviewInfo.campaign.contract.currentPlayers.length}} </p>
   <p> Desired Players: {{campaignPreviewInfo.campaign.contract.playersWanted}} </p>
   <p *ngIf="campaignPreviewInfo.hasOwnProperty('distance')">Distance: {{campaignPreviewInfo.distance}} Miles</p>

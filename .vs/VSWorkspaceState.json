@@ -2,14 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\assets",
-    "\\src\\assets\\imgs",
+    "\\src\\components",
+    "\\src\\components\\campaign-preview",
     "\\src\\pages",
-    "\\src\\pages\\create-account",
-    "\\src\\pages\\home",
-    "\\src\\providers"
+    "\\src\\pages\\campaign",
+    "\\src\\pages\\campaign-finder",
+    "\\src\\providers",
+    "\\src\\providers\\account-info",
+    "\\src\\providers\\calendar",
+    "\\src\\providers\\campaign-info",
+    "\\src\\providers\\location"
   ],
-  "SelectedNode": "\\src\\pages\\create-account\\create-account.html",
   "PreviewInSolutionExplorer": false
 }

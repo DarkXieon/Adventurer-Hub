@@ -14,6 +14,7 @@ export class CreateAccountPage {
 
   private email: string;
   private password: string;
+  private confirmPassword: string;
   private displayName: string;
   private profileImage: string;
   private errorMessage: string;
@@ -34,7 +35,8 @@ export class CreateAccountPage {
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
       mediaType: this.camera.MediaType.PICTURE,
       encodingType: this.camera.EncodingType.JPEG,
-      saveToPhotoAlbum: true
+      saveToPhotoAlbum: true,
+      correctOrientation: true
     }
 
     this.camera.getPicture(options).then(res => {
@@ -42,13 +44,17 @@ export class CreateAccountPage {
       let cameraImageSelector = document.getElementById('camera-image');
       cameraImageSelector.setAttribute('src', this.profileImage);
     }, err => alert(err));
-    
-    console.log(this.profileImage);
   }
 
   private tryCreateAccount(): void {
-    this.angularFireAuth.auth.createUserWithEmailAndPassword(this.email, this.password)
-      .then((res: any) => this.accountInfoProvider.setUserInfo({ displayName: this.displayName, imagePath: this.profileImage }))
-      .catch((error: any) => this.errorMessage = "Email is invalid");
+    if (this.password == this.confirmPassword) {
+      this.angularFireAuth.auth.createUserWithEmailAndPassword(this.email, this.password)
+        .then((res: any) => this.accountInfoProvider.setUserInfo({ displayName: this.displayName, imageUrl: this.profileImage }))
+        .catch((error: any) => this.errorMessage = "Email is invalid");
+    }
+    else {
+      this.errorMessage = "Passwords must match" + this.password + " " + this.confirmPassword;
+
+    }
   }
 }

@@ -20,12 +20,17 @@
     </ion-item>
 
     <ion-item>
+      <ion-label stacked color="primary">Confirm Password</ion-label>
+      <ion-input [(ngModel)]="confirmPassword" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-label stacked color="primary">Display Name</ion-label>
       <ion-input [(ngModel)]="displayName" placeholder="People see this"></ion-input>
     </ion-item>
 
     <ion-item>
-      <img id="camera-image" item-start/>
+      <img id="camera-image" item-start />
       <ion-label *ngIf="profileImage == null" item-start color="primary">No Image Selected</ion-label>
       <button ion-button small item-end primary (tap)="pickImage()">Choose Profile Image</button>
     </ion-item>

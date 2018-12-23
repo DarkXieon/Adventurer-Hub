@@ -27,6 +27,7 @@ export class CampaignPage {
     this.campaignPlayers = this.navParams.data.campaignPlayers;
     this.isCampaignOwner = this.campaignInfo.contract.ownerUid == userInfoProvider.getUid();
     this.isInCampaign = this.campaignInfo.contract.currentPlayers.find(player => player == userInfoProvider.getUid()) != null;
+    console.log(this.campaignInfo.contract.image);
   }
 
   private addToCampaign(): void {
@@ -62,9 +63,79 @@ export class CampaignPage {
     return newArray;
   }
 
+  private showMeetingTime(): string {
+
+    let message: string = "";
+
+    for (let i = 0; i < this.campaignInfo.contract.meetingTimes.length; i++) {
+
+      let currentTime = this.campaignInfo.contract.meetingTimes[i];
+      let startDay: string;
+      let startTime: string;
+      let endTime: string;
+
+      switch (currentTime.meetingDay) {
+        case 0:
+          startDay = "Sunday";
+          break;
+        case 1:
+          startDay = "Monday";
+          break;
+        case 2:
+          startDay = "Tuesday";
+          break;
+        case 3:
+          startDay = "Wednesday";
+          break;
+        case 4:
+          startDay = "Thursday";
+          break;
+        case 5:
+          startDay = "Friday";
+          break;
+        case 6:
+          startDay = "Saturday";
+          break;
+      }
+
+      let brokenStartTime = currentTime.meetingStartTime.split(':');
+      let brokenEndTime = currentTime.meetingEndTime.split(':');
+
+      brokenStartTime[1] = +brokenStartTime[0] > 11
+        ? brokenStartTime[1] + ' p.m.'
+        : brokenStartTime[1] + ' a.m.';
+
+      brokenStartTime[0] = +brokenStartTime[0] > 12
+        ? (+brokenStartTime[0] - 12) + ""
+        : +brokenStartTime[0] == 0
+          ? "12"
+          : brokenStartTime[0];
+
+      brokenEndTime[1] = +brokenEndTime[0] > 11
+        ? brokenEndTime[1] + ' p.m.'
+        : brokenEndTime[1] + ' a.m.';
+
+      brokenEndTime[0] = +brokenEndTime[0] > 12
+        ? (+brokenEndTime[0] - 12) + ""
+        : +brokenEndTime[0] == 0
+          ? "12"
+          : brokenEndTime[0];
+
+      startTime = brokenStartTime[0] + ":" + brokenStartTime[1];
+      endTime = brokenEndTime[0] + ":" + brokenEndTime[1];
+
+      message += `${startDay}s from ${startTime} to ${endTime}`;
+
+      if (i < this.campaignInfo.contract.meetingTimes.length - 1) {
+        message += " , ";
+      }
+    }
+
+    return message;
+  }
+
   ionViewDidLoad() {
     console.log(this.campaignInfo);
     console.log(this.campaignPlayers);
   }
-
 }

@@ -4,13 +4,6 @@ import { CampaignInfoProvider, CampaignInfo } from '../../providers/campaign-inf
 import { LocationProvider } from '../../providers/location/location';
 import { AccountInfoProvider } from '../../providers/account-info/account-info';
 
-/**
- * Generated class for the CampaignFinderPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-campaign-finder',
@@ -28,12 +21,7 @@ export class CampaignFinderPage {
     private accountInfoProvider: AccountInfoProvider,
     private locationProvider: LocationProvider) {
   }
-
-  ionViewDidLoad() {
-    console.log(+this.withinMiles);
-    console.log(+this.withinMiles == NaN);
-  }
-
+  
   ionViewWillEnter() {
     this.campaignInfoProvider.getUnjoinedCampaigns(this.accountInfoProvider.getUid()).then(result => {
       this.locationProvider.getCurrentCoordinates().then(location => {
@@ -45,7 +33,6 @@ export class CampaignFinderPage {
         }).sort((a, b) => {
           return a.distance - b.distance;
           });
-        console.log(this.sortedCampaigns);
       });
     });
   }

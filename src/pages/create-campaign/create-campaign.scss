@@ -1,0 +1,39 @@
+page-create-campaign {
+
+  #profile-image-label {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  #camera-image {
+    margin-left: 50vw;
+    font-size: 15px;
+    transform: translate(-50%, calc(1.2em + 10px));
+    width: 20vh;
+    height: 20vh;
+    border-radius: 100vh;
+  }
+
+  #add-icon {
+    margin-left: 50vw;
+    font-size: 15px;
+    transform: translate(-50%, calc(-50% - 10vh + 1.2em));
+  }
+
+  #body {
+    padding: 10px;
+    font-size: 15px;
+    transform: translateY(calc(5vh + 1.2em));
+  }
+
+  #description {
+    min-height: 20vh;
+    border: thin;
+    border-color: black;
+    border-style: solid;
+  }
+
+  #create-button {
+    margin-top: 10vh;
+  }
+}

@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create a Campaign</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-label color="primary" id="profile-image-label">Campaign Image</ion-label>
+  <img (tap)="pickImage()" id="camera-image" />
+  <!-- <img *ngIf="profileImage != ''" (tap)="pickImage()" id="camera-image" />   -->
+  <ion-icon *ngIf="profileImage != ''" name="add-circle" id="add-icon"></ion-icon>
+
+  <div id="body">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked color="primary">Campaign Name</ion-label>
+        <ion-input [(ngModel)]="name" placeholder="My Awesome Campaign"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="primary">Number of Players Wanted</ion-label>
+        <ion-input [(ngModel)]="playersWanted" type="number" placeholder="5"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked color="primary">Days</ion-label>
+        <ion-select [(ngModel)]="selectedDays" multiple="true">
+          <ion-option value="Sunday">Sunday</ion-option>
+          <ion-option>Monday</ion-option>
+          <ion-option>Tuesday</ion-option>
+          <ion-option>Wednesday</ion-option>
+          <ion-option>Thursday</ion-option>
+          <ion-option>Friday</ion-option>
+          <ion-option>Saturday</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-grid *ngFor="let day of selectedDays">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="primary">{{day}} Meeting Time</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <div item-start>
+              <ion-label stacked color="primary">Start Time</ion-label>
+              <ion-input [(ngModel)]="meetings[day].StartTime" placeholder="12:00" style="width: 5em"></ion-input>
+            </div>
+            <div item-start>
+              <ion-label stacked color="primary">Time Cycle</ion-label>
+              <ion-select [(ngModel)]="meetings[day].StartTimeType">
+                <ion-option>a.m.</ion-option>
+                <ion-option>p.m.</ion-option>
+              </ion-select>
+            </div>
+          </ion-item>
+
+          <ion-item>
+            <div item-start>
+              <ion-label stacked color="primary">End Time</ion-label>
+              <ion-input [(ngModel)]="meetings[day].EndTime" placeholder="2:00" style="width: 5em"></ion-input>
+            </div>
+            <div item-start>
+              <ion-label stacked color="primary">Time Cycle</ion-label>
+              <ion-select [(ngModel)]="meetings[day].EndTimeType">
+                <ion-option>a.m.</ion-option>
+                <ion-option>p.m.</ion-option>
+              </ion-select>
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card-header>
+      <h2>Description</h2>
+    </ion-card-header>
+
+    <ion-card id="description">
+      <ion-textarea [(ngModel)]="description" placeholder="Enter a description"></ion-textarea>
+    </ion-card>
+
+    <ion-label stacked color="danger">{{errorMessage}}</ion-label>
+    <button ion-button primary full (tap)="tryCreateAccount()" id="create-button">Create Campaign</button>
+  </div>
+</ion-content>
